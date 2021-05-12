@@ -21,18 +21,43 @@ inquirer
         {
             type: 'input',
             name: 'name',
-            message: 'What is your name?'
+            message: 'What is your name? (required)',
+            validate: nameInput => {
+                if (nameInput) {
+                    return true;
+                } else {
+                    console.log('Please enter your name!');
+                    return false;
+                }
+            }
         },
         {
             type: 'input',
             name: 'github',
-            message: 'What is your github username?'
+            message: 'What is your github username? (required)' ,
+            validate: nameInput => {
+                if (nameInput) {
+                    return true;
+                } else {
+                    console.log('Please enter your github username!');
+                    return false;
+                }
+        }
         },
         {
             type: 'input',
             name: 'about me',
-            message: 'please provide some information about yourself?'
-        }   
+            message: 'please provide some information about yourself? (required)',
+            validate: nameInput => {
+                if (nameInput) {
+                    return true;
+                } else {
+                    console.log('Please add info about yourself!');
+                    return false;
+                }
+             }   
+        }
+        
     ]);
 };
 
@@ -66,7 +91,15 @@ const promptProject = portfolioData => {
       {
         type: 'input',
         name: 'link',
-        message: 'Enter the GitHub link to your project. (Required)'
+        message: 'Enter the GitHub link to your project. (Required)',
+        validate: nameInput => {
+            if (nameInput) {
+                return true;
+            } else {
+                console.log('Please add project link!');
+                return false;
+            }
+         }   
       },
       {
         type: 'confirm',
